@@ -1,5 +1,5 @@
 import React from "react";
-// import { ReactComponent as SearchIcon } from "../../assets/Search icon.svg";
+
 import "./search.css";
 const Search = ({ placeHolder }) => {
   return (
