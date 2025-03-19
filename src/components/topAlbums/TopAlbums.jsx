@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
-
+import React, { useEffect, useState } from "react";
 import Section from "../section/Section";
 
 const TopAlbums = () => {
@@ -22,15 +21,15 @@ const TopAlbums = () => {
   if (albums)
     return (
       <>
-        <Section albums={albums} title={"Top Albums"} />
+        <Section albums={albums} title={"Top Albums"}/>
       </>
     );
-  else
-    return (
-      <div className="container">
+  else return (
+    <div className="container">
         <h1>Loading...</h1>
-      </div>
-    );
+
+    </div>
+  );
 };
 
 export default TopAlbums;
