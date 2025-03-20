@@ -1,10 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
-import CustomCard from "../card/Card";
+import React, { useState } from "react";
+import CustomCard from "../card/CustomCard";
+import Carousel from "../Carousel/Carousel";
 
-const Section = ({ albums, title }) => {
+const Section = ({ data, title }) => {
+  const [collapse, setCollapse] = useState(true);
   return (
-    <Box px={2}>
+    <Box px={2} my={4}>
       <Box display={"flex"} justifyContent={"space-between"}>
         <Typography
           sx={{
@@ -18,6 +20,7 @@ const Section = ({ albums, title }) => {
           {title}
         </Typography>
         <Typography
+          onClick={() => setCollapse((preValue) => !preValue)}
           sx={{
             color: "var(--color-primary)",
             fontFamily: "Poppins,sans-serif",
@@ -25,19 +28,24 @@ const Section = ({ albums, title }) => {
             fontStyle: "normal",
             fontWeight: "600",
             lineHeight: "normal",
-            marginRight:"10px"
+            marginRight: "10px",
+            cursor: "pointer",
+            display:{xs:"none",sm:"block",md:"block"}
           }}
         >
-          Collapse
+          {collapse ? "Show All" : "Collapse"}
         </Typography>
       </Box>
-      <Grid container rowSpacing={2} columnSpacing={4} p={2} width={"100%"}>
-        {albums.map((album) => (
-          <Grid item key={album.id} sm={2} lg={2}>
-            <CustomCard album={album} />
-          </Grid>
-        ))}
-      </Grid>
+      {collapse && <Carousel slides={data}/>}
+      {!collapse && (
+        <Grid container rowSpacing={2} columnSpacing={2} p={2} width={"100%"}>
+          {data.map((cardData) => (
+            <Grid item key={cardData.id} sm={2} lg={2}>
+              <CustomCard cardData={cardData} data={data} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Box>
   );
 };

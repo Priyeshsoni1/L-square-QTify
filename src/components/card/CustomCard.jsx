@@ -1,13 +1,11 @@
 import React from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import albumImage from "../../assets/Rectangle 2139.png";
-import { Box, Chip } from "@mui/material";
-const CustomCard = ({album}) => {
+import { Box, Chip, Tooltip } from "@mui/material";
+
+const CustomCard = ({cardData,data}) => {
   return (
     <Box
       sx={{
@@ -17,10 +15,11 @@ const CustomCard = ({album}) => {
         gap: "6px",
       }}
     >
+      <Tooltip title={`${cardData.songs.length} songs`} placement="top" arrow>
       <Card
         sx={{
-          width: "140px",
-          height: "190px",
+          width: "159px",
+          height: "205px",
           borderRadius: "10px",
           background: "#FFF",
           flexShrink: 0,
@@ -32,8 +31,7 @@ const CustomCard = ({album}) => {
             width: "100%",
             borderRadius: "10px 10px 0px 0px",
           }}
-          image={album.image}
-          title="green iguana"
+          image={cardData.image}
         />
         <CardContent
           sx={{
@@ -46,7 +44,7 @@ const CustomCard = ({album}) => {
           }}
         >
           <Chip
-            label={`${album.follows} Follows`}
+            label={`${cardData.follows} Follows`}
             sx={{
               height: "28px",
               display: "inline-flex",
@@ -65,6 +63,7 @@ const CustomCard = ({album}) => {
           />
         </CardContent>
       </Card>
+      </Tooltip>
       <Typography
         sx={{
           fontFamily: "Poppins,sans-serif",
@@ -74,7 +73,7 @@ const CustomCard = ({album}) => {
           lineHeight: "normal",
         }}
       >
-        {album.title}
+        {cardData.title}
       </Typography>
     </Box>
   );
