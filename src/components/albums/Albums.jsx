@@ -6,7 +6,30 @@ import { Box, CircularProgress } from "@mui/material";
 const Albums = () => {
   const [topAlbums, setTopAlbums] = useState();
   const [newAlbums, setNewAlbums] = useState();
-
+  const fetchNewAlbums = async () => {
+    try {
+      const res = await axios.get(
+        "https://qtify-backend-labs.crio.do/albums/new"
+      );
+      setNewAlbums(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const fetchTopAlbums = async () => {
+    try {
+      const res = await axios.get(
+        "https://qtify-backend-labs.crio.do/albums/top"
+      );
+      setTopAlbums(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchNewAlbums();
+    fetchTopAlbums();
+  }, []);
   if (topAlbums && newAlbums)
     return (
       <Box>
