@@ -27,10 +27,10 @@ const Songs = () => {
   const filterSongsByGenre = (songs, genre) => {
     return songs.filter((song) => song.genre.key === genre.key);
   };
-  // useEffect(() => {
-  //   fetchSongs();
-  //   fetchGenres();
-  // }, []);
+  useEffect(() => {
+    fetchSongs();
+    fetchGenres();
+  }, []);
   const filteredSongs = filterSongsByGenre(songs, genres[selectedTab]);
   if (songs && genres)
     return (
