@@ -13,7 +13,9 @@ const Faq = () => {
     try {
       const res = await axios.get("https://qtify-backend-labs.crio.do/faq");
       setFaqs(res.data.data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     fetchFaqs();
@@ -36,51 +38,55 @@ const Faq = () => {
       </Typography>
       <Box>
         {faqs.map((faq, index) => (
-          <Accordion
-            sx={{
-              my: 2,
-              backgroundColor: "var(--color-black)",
-              color: "var(--color-white)",
-              border: "1px solid var(--color-white)",
-              borderRadius: "10px",
-              height:"100%",
-              width:"100%"
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{color:"var(--color-primary)"}}/>}
-              aria-controls={`panel${index}a-content`}
-              id={`panel${index}a-header`}
-            >
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  lineHeight: "normal",
-                }}
-              >
-                {faq.question}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails
+          <div key={index}>
+            <Accordion
               sx={{
-                backgroundColor: "var(--color-white)",
-                color: "var(--color-black)",
+                my: 2,
+                backgroundColor: "var(--color-black)",
+                color: "var(--color-white)",
+                border: "1px solid var(--color-white)",
+                borderRadius: "10px",
+                height: "100%",
+                width: "100%",
               }}
             >
-              <Typography
+              <AccordionSummary
+                expandIcon={
+                  <ExpandMoreIcon sx={{ color: "var(--color-primary)" }} />
+                }
+                aria-controls={`panel${index}a-content`}
+                id={`panel${index}a-header`}
+              >
+                <Typography
+                  sx={{
+                    fontFamily: "Poppins",
+                    fontStyle: "normal",
+                    fontWeight: "500",
+                    lineHeight: "normal",
+                  }}
+                >
+                  {faq.question}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails
                 sx={{
-                  fontFamily: "Poppins",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  lineHeight: "normal",
+                  backgroundColor: "var(--color-white)",
+                  color: "var(--color-black)",
                 }}
               >
-                {faq.answer}
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
+                <Typography
+                  sx={{
+                    fontFamily: "Poppins",
+                    fontStyle: "normal",
+                    fontWeight: "500",
+                    lineHeight: "normal",
+                  }}
+                >
+                  {faq.answer}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </div>
         ))}
       </Box>
     </Box>
