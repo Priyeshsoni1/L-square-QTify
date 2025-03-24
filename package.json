@@ -14,7 +14,7 @@
     "@emotion/styled": "^11.14.0",
     "@fontsource/inter": "^5.0.15",
     "@mui/base": "^5.0.0-beta.24",
-    "@mui/icons-material": "^5.14.18",
+    "@mui/icons-material": "^6.4.8",
     "@mui/joy": "^5.0.0-beta.15",
     "@mui/material": "^6.4.7",
     "axios": "^1.8.3",
