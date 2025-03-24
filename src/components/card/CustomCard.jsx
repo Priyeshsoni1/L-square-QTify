@@ -18,7 +18,7 @@ const CustomCard = ({ cardData, data, type }) => {
       {type === "album" && (
         <>
           <Tooltip
-            title={`${cardData?.songs?.length} songs`}
+            title={`${cardData.songs.length} songs`}
             placement="top"
             arrow
           >
@@ -37,7 +37,7 @@ const CustomCard = ({ cardData, data, type }) => {
                   width: "100%",
                   borderRadius: "10px 10px 0px 0px",
                 }}
-                image={cardData?.image}
+                image={cardData.image}
               />
               <CardContent
                 sx={{
@@ -50,7 +50,7 @@ const CustomCard = ({ cardData, data, type }) => {
                 }}
               >
                 <Chip
-                  label={`${cardData?.follows} Follows`}
+                  label={`${cardData.follows} Follows`}
                   sx={{
                     height: "28px",
                     display: "inline-flex",
@@ -79,7 +79,7 @@ const CustomCard = ({ cardData, data, type }) => {
               lineHeight: "normal",
             }}
           >
-            {cardData?.title}
+            {cardData.title}
           </Typography>
         </>
       )}
@@ -100,7 +100,7 @@ const CustomCard = ({ cardData, data, type }) => {
                 width: "100%",
                 borderRadius: "10px 10px 0px 0px",
               }}
-              image={cardData?.image}
+              image={cardData.image}
             />
             <CardContent
               sx={{
@@ -113,7 +113,7 @@ const CustomCard = ({ cardData, data, type }) => {
               }}
             >
               <Chip
-                label={`${cardData?.likes} Likes`}
+                label={`${cardData.likes} Likes`}
                 sx={{
                   height: "28px",
                   display: "inline-flex",
@@ -141,7 +141,7 @@ const CustomCard = ({ cardData, data, type }) => {
               lineHeight: "normal",
             }}
           >
-            {cardData?.title}
+            {cardData.title}
           </Typography>
         </>
       )}

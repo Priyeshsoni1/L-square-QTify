@@ -1,13 +1,20 @@
-import "./button.css"
+import { Feedback } from "@mui/icons-material";
+import "./button.css";
 
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import FeedbackFrom from "../feedbackForm/FeedbackFrom";
 
-const Button= ({children}) => {
+const Button = ({ children }) => {
+  const [showForm, setShowForm] = useState(false);
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
   return (
     <>
-       <button>{children}</button>
+      <button onClick={toggleForm}>{children}</button>
+      {showForm===true && <FeedbackFrom toggleForm={toggleForm}/>}
     </>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
