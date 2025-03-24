@@ -13,7 +13,7 @@ import CustomCard from "../card/CustomCard";
 import CarouselLeftNavigation from "./CarouselLeftNavigation";
 import CarouselRightNavigation from "./CarouselRightNavigation";
 
-const Carousel = ({ slides, renderComponent }) => {
+const Carousel = ({ slides,type }) => {
   return (
     <Box sx={{padding:{xs:"6px 0px",sm:"6px",md:"6px"}}} display={"flex"} justifyContent={"center"}>
       <Swiper
@@ -34,7 +34,7 @@ const Carousel = ({ slides, renderComponent }) => {
 
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <CustomCard cardData={slide} data={slides} />
+            <CustomCard cardData={slide} data={slides} type={type}/>
           </SwiperSlide>
         ))}
       </Swiper>

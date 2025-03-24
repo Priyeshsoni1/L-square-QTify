@@ -32,9 +32,9 @@ const Albums = () => {
   }, []);
   if (topAlbums && newAlbums)
     return (
-      <Box>
-        <Section data={topAlbums} title={"Top Albums"} />
-        <Section data={newAlbums} title={"New Albums"} />
+      <Box gutterBottom>
+        <Section data={topAlbums} title={"Top Albums"} type={"album"}/>
+        <Section data={newAlbums} title={"New Albums"} type={"album"}/>
       </Box>
     );
   else
