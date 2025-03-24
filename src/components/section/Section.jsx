@@ -4,7 +4,7 @@ import CustomCard from "../card/CustomCard";
 import Carousel from "../Carousel/Carousel";
 
 const Section = ({ data, title, type, renderComponent }) => {
-  console.log('data',data);
+  console.log("data", data);
   const [collapse, setCollapse] = useState(true);
   return (
     <Box px={2} my={4}>
@@ -45,7 +45,12 @@ const Section = ({ data, title, type, renderComponent }) => {
         <Grid container rowSpacing={2} columnSpacing={2} p={2} width={"100%"}>
           {data.map((cardData) => (
             <Grid item key={cardData.id} sm={2} lg={2}>
-              <CustomCard cardData={cardData} data={data} type={type} />
+              <CustomCard
+                key={cardData.id}
+                cardData={cardData}
+                data={data}
+                type={type}
+              />
             </Grid>
           ))}
         </Grid>

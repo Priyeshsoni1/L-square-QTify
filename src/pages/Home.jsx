@@ -12,7 +12,7 @@ const Home = () => {
       <HeroSection />
       <Albums />
       <Songs />
-      {/* <Faq /> */}
+      <Faq />
     </>
   );
 };
