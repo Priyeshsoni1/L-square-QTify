@@ -2,25 +2,25 @@ import { Box, Button, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import "./style.css";
-const FeedbackFrom = ({toggleForm}) => {
-    useEffect(()=>{
-        document.body.style.overflowY="hidden"
-        return()=>{
-            document.body.style.overflowY="scroll"
-        }
-    })
+const FeedbackFrom = ({ toggleForm }) => {
+  useEffect(() => {
+    document.body.style.overflowY = "hidden";
+    return () => {
+      document.body.style.overflowY = "scroll";
+    };
+  });
   return (
     <Box
       sx={{
         position: "fixed",
         top: 0,
         left: 0,
-        bottom:0,
-        right:0,
+        bottom: 0,
+        right: 0,
         zIndex: 6,
         background: "#121212c4",
-    }}
-    onClick={toggleForm}
+      }}
+      onClick={toggleForm}
     >
       <Box
         sx={{
@@ -35,37 +35,38 @@ const FeedbackFrom = ({toggleForm}) => {
           gap: "1rem",
           px: "2rem",
           backgroundColor: "var(--color-white)",
-          height: {xs:"60%",sm:"60%",md:"70%"},
-          width: {xs:"80%",sm:"60%",md:"30%"},
+          height: { xs: "60%", sm: "60%", md: "70%" },
+          width: { xs: "80%", sm: "60%", md: "30%" },
           borderRadius: "10px",
           alignItems: "center",
-          opacity:1
+          opacity: 1,
         }}
-        onClick={(e)=>{e.stopPropagation()}}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
       >
         <Box
           sx={{
             color: "black",
-            display: "flex",
-            justifyContent: "end",
-            width: "100%",
+            position:"absolute",
+            top:20,
+            right:20,
           }}
         >
-          <Typography
-            sx={{
-              mr: "6rem",
-              color: "#121212",
-              fontFamily: "Poppins",
-              fontSize: "16px",
-              fontStyle: "normal",
-              fontWeight: "600",
-              lineHeight: "normal",
-            }}
-          >
-            Feedback
-          </Typography>
-          <CloseIcon onClick={toggleForm} style={{cursor:"pointer"}}/>
+          <CloseIcon onClick={toggleForm} style={{ cursor: "pointer" }} />
         </Box>
+        <Typography
+          sx={{
+            color: "#121212",
+            fontFamily: "Poppins",
+            fontSize: "16px",
+            fontStyle: "normal",
+            fontWeight: "600",
+            lineHeight: "normal",
+          }}
+        >
+          Feedback
+        </Typography>
         <input type="text" placeholder="Full name" />
         <input type="email" placeholder="Email ID" />
         <input type="text" placeholder="Subject" />
@@ -83,9 +84,9 @@ const FeedbackFrom = ({toggleForm}) => {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "var(--Primary-400, var(--color-primary))",
-            "&:hover":{
-                backgroundColor: "var(--Primary-800, var(--color-primary))"
-            }
+            "&:hover": {
+              backgroundColor: "var(--Primary-800, var(--color-primary))",
+            },
           }}
         >
           Submit Feedback

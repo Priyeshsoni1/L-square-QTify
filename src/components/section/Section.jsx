@@ -4,7 +4,6 @@ import CustomCard from "../card/CustomCard";
 import Carousel from "../Carousel/Carousel";
 
 const Section = ({ data, title, type, renderComponent }) => {
-  console.log('data',data);
   const [collapse, setCollapse] = useState(true);
   return (
     <Box px={2} my={4}>
