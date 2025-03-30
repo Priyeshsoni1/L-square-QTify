@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import { fetchNewAlbums, fetchTopAlbums } from "./albumApi";
 
 export const fetchNewAlbumsThunk = createAsyncThunk(
@@ -22,8 +22,15 @@ export const albumSlice = createSlice({
     status: null,
     topAlbums: [],
     newAlbums: [],
+    currentAlbum:null
   },
   reducers: {
+    setCurrentAlbum:(state,action)=>{
+        const albums=[...state.topAlbums,...state.newAlbums]
+        console.log('action dispatched');
+        state.currentAlbum=albums.find((item) => item.id===action.payload)
+        console.log(current(state));
+    }
   },
   extraReducers(builder) {
     builder
@@ -50,6 +57,6 @@ export const albumSlice = createSlice({
   },
 });
 
-// export const {  } = albumSlice.actions;
+export const { setCurrentAlbum } = albumSlice.actions;
 
 export default albumSlice.reducer;

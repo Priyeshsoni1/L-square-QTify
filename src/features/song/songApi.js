@@ -11,7 +11,6 @@ export const fetchSongs = async () => {
 export const fetchGenres = async () => {
   try {
     const res = await axios.get("https://qtify-backend-labs.crio.do/genres");
-    console.log(res);
     return res.data.data;
   } catch (error) {
     console.log(error);

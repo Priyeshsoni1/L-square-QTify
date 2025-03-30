@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import { fetchGenres, fetchSongs } from "./songApi";
 
 export const fetchSongsThunk = createAsyncThunk(
@@ -26,7 +26,6 @@ export const songSlice = createSlice({
   },
   reducers: {
     filterSongsByGenre:(state,action)=>{
-      console.log('action.payload',action.payload);
        if(action.payload.key==="all"){
         state.filteredSongs= state.songs
        }else{

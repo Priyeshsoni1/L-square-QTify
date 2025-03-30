@@ -1,20 +1,11 @@
-import React, { useEffect } from "react";
-import Section from "../../components/section/Section";
+import React from "react";
+import Section from "../../../components/section/Section";
 import { Box, CircularProgress } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchNewAlbumsThunk,
-  fetchTopAlbumsThunk,
-} from "./albumSlice";
+import { useSelector } from "react-redux";
 
 const Albums = () => {
-  const dispatch = useDispatch();
   const { topAlbums, newAlbums, status } = useSelector((state) => state.album);
 
-  useEffect(() => {
-    dispatch(fetchNewAlbumsThunk());
-    dispatch(fetchTopAlbumsThunk());
-  }, []);
   if (status === "success")
     return (
       <Box>
@@ -32,3 +23,4 @@ const Albums = () => {
 };
 
 export default Albums;
+// TODO : Make seperate loading statuse of top albums and new albums

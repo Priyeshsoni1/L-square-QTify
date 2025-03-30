@@ -1,18 +1,12 @@
 import { Feedback } from "@mui/icons-material";
 import "./button.css";
 
-import React, { useEffect, useState } from "react";
-import FeedbackFrom from "../feedbackForm/FeedbackFrom";
+import React from "react";
 
-const Button = ({ children }) => {
-  const [showForm, setShowForm] = useState(false);
-  const toggleForm = () => {
-    setShowForm(!showForm);
-  };
+const Button = ({ children, onClick }) => {
   return (
     <>
-      <button onClick={toggleForm}>{children}</button>
-      {showForm===true && <FeedbackFrom toggleForm={toggleForm}/>}
+      <button onClick={onClick}>{children}</button>
     </>
   );
 };

@@ -48,9 +48,9 @@ const FeedbackFrom = ({ toggleForm }) => {
         <Box
           sx={{
             color: "black",
-            position:"absolute",
-            top:20,
-            right:20,
+            position: "absolute",
+            top: 20,
+            right: 20,
           }}
         >
           <CloseIcon onClick={toggleForm} style={{ cursor: "pointer" }} />

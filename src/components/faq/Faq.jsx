@@ -13,7 +13,9 @@ const Faq = () => {
     try {
       const res = await axios.get("https://qtify-backend-labs.crio.do/faq");
       setFaqs(res.data.data);
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error fetching FAQs:", error);
+    }
   };
   useEffect(() => {
     fetchFaqs();
@@ -37,18 +39,21 @@ const Faq = () => {
       <Box>
         {faqs.map((faq, index) => (
           <Accordion
+            key={index}
             sx={{
               my: 2,
               backgroundColor: "var(--color-black)",
               color: "var(--color-white)",
               border: "1px solid var(--color-white)",
               borderRadius: "10px",
-              height:"100%",
-              width:"100%",
+              height: "100%",
+              width: "100%",
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{color:"var(--color-primary)"}}/>}
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "var(--color-primary)" }} />
+              }
               aria-controls={`panel${index}a-content`}
               id={`panel${index}a-header`}
             >

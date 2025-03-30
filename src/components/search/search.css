@@ -30,10 +30,11 @@
   line-height: 19.2px;
   letter-spacing: 0.2px;
   color: var(--color-black);
+  border-radius: 0px 0px 0px 0px;
   border: none;
 }
 
-.search-button {
+.close-button {
   height: 48px;
   width: 66px;
   padding: 5px;
@@ -42,8 +43,13 @@
   font-size: 20px;
   text-align: center;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.591);
+  cursor: pointer;
 }
-.search-button-mobile{
+.close-button-mobile{
   height: 48px;
   width: 66px;
   padding: 5px;
@@ -52,6 +58,11 @@
   font-size: 20px;
   text-align: center;
   border: none;
+  color: rgba(0, 0, 0, 0.591);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 input:focus {

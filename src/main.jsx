@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from "./app/store";
+import AlbumDetailPage from "./pages/AlbumDetailPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/album-detail/:id",
+        element: <AlbumDetailPage />,
       },
     ],
   },
@@ -24,3 +29,6 @@ root.render(
     <RouterProvider router={router} />
   </Provider>
 );
+
+// Main benefit of using children in routing
+// we do need to use extra header and footers

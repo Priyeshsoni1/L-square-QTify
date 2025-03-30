@@ -10,20 +10,22 @@ const CarouselRightNavigation = () => {
   }, [swiper]);
   return (
     <>
-      {!slideEnd && <Button
-        onClick={() => swiper.slideNext()}
-        sx={{
-          height: "32px",
-          width: "32px",
-          position: "absolute",
-          right: "0px",
-          bottom: "50%",
-          zIndex: 10,
-          display: { xs: "none", sm: "block", md: "block" },
-        }}
-      >
-        <img src={rightArrow} alt="arrow" height="100%" widht="100%" />
-      </Button>}
+      {!slideEnd && (
+        <Button
+          onClick={() => swiper.slideNext()}
+          sx={{
+            height: "32px",
+            width: "32px",
+            position: "absolute",
+            right: "0px",
+            bottom: "50%",
+            zIndex: 10,
+            display: { xs: "none", sm: "block", md: "block" },
+          }}
+        >
+          <img src={rightArrow} alt="arrow" height="100%" widht="100%" />
+        </Button>
+      )}
     </>
   );
 };

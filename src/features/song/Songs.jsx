@@ -1,33 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Section from "../../components/section/Section";
 import BasicTabs from "../../components/basic-tabs/BasicTabs";
-import {
-  Box,
-  CircularProgress,
-} from "@mui/material";
-import SearchResults from "../../components/searchResults/SearchResults";
+import { Box, CircularProgress } from "@mui/material";
+
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchGenresThunk,
-  fetchSongsThunk,
-  filterSongsByGenre,
-} from "./songSlice";
+import { filterSongsByGenre } from "./songSlice";
 
 const Songs = () => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const { songs, status, genres, filteredSongs } = useSelector(
-    (state) => state.song
-  );
+  const { status, genres, filteredSongs } = useSelector((state) => state.song);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchSongsThunk());
-    dispatch(fetchGenresThunk());
-  }, []);
+
   useEffect(() => {
     if (status === "success") {
       dispatch(filterSongsByGenre(genres[selectedTab]));
     }
-  }, [selectedTab]);
+  }, [selectedTab, genres, status, dispatch]);
 
   if (status === "success")
     return (

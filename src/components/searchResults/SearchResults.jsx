@@ -10,20 +10,27 @@ const SearchResults = ({ data }) => {
         alignContent: "center",
         flexDirection: "column",
         backgroundColor: "var(--color-black)",
-        width: "60%",
-        height: "80vh",
+        width: "100%",
+        maxHeight: "80vh",
         overflowY: "scroll",
         position: "absolute",
-        top:"13%",
-        left:"46%",
-        transform:"translate(-50%)",
+        bottom: "0",
+        left: "50%",
+        transform: "translate(-50%,100%)",
         zIndex: 2,
-        border: "1px solid var(--color-primary)",
+        borderBottom: "1px solid var(--color-primary)",
+        borderLeft: "1px solid var(--color-primary)",
+        borderRight: "1px solid var(--color-primary)",
         "&::-webkit-scrollbar": {
-          display: "none"
+          display: "none",
         },
+        borderRadius: "0px 0px 10px 10px",
       }}
     >
+      {data.length>0 && (
+        <Box sx={{ p: "0.6rem",position:"sticky",top:0,backgroundColor:"var(--color-black)"}}>{data.length} search result</Box>
+      )}
+
       {data.map((item) => (
         <Box
           sx={{
