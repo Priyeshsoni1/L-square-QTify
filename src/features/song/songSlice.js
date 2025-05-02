@@ -22,17 +22,18 @@ export const songSlice = createSlice({
     status: null,
     songs: [],
     genres: [],
-    filteredSongs:[]
+    filteredSongs: [],
   },
   reducers: {
-    filterSongsByGenre:(state,action)=>{
-       if(action.payload.key==="all"){
-        state.filteredSongs= state.songs
-       }else{
-         state.filteredSongs=state.songs.filter((song)=>song.genre.key===action.payload.key)
-
-       }
-    }
+    filterSongsByGenre: (state, action) => {
+      if (action?.payload?.key === "all") {
+        state.filteredSongs = state.songs;
+      } else {
+        state.filteredSongs = state.songs.filter(
+          (song) => song?.genre?.key === action?.payload?.key
+        );
+      }
+    },
   },
   extraReducers(builder) {
     builder
@@ -52,7 +53,7 @@ export const songSlice = createSlice({
       })
       .addCase(fetchGenresThunk.fulfilled, (state, action) => {
         state.status = "success";
-        state.genres = [{key:'all',label:"All"},...action.payload];
+        state.genres = [{ key: "all", label: "All" }, ...action.payload];
       })
       .addCase(fetchGenresThunk.rejected, (state, action) => {
         state.status = "failed";
@@ -60,6 +61,6 @@ export const songSlice = createSlice({
   },
 });
 
-export const {filterSongsByGenre} = songSlice.actions;
+export const { filterSongsByGenre } = songSlice.actions;
 
 export default songSlice.reducer;
